@@ -1,0 +1,20 @@
+version: '3.3'
+
+services:
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_DB=db_name
+      - POSTGRES_USER=db_username
+      - POSTGRES_PASSWORD=db_pw
+    ports:
+      - "5432:5432"
+    expose:
+      - '5432'
+    volumes:
+      - my-db:/var/lib/postgresql
+
+volumes:
+  my-db:
